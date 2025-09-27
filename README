@@ -1,0 +1,156 @@
+# 🎴 Playing Card Collection API
+
+A simple **RESTful API** built with **Express.js** to manage a collection of playing cards.
+This API allows you to:
+
+* List all cards
+* Add a new card (with suit and value)
+* Retrieve a card by ID
+* Delete a card by ID
+
+The card data is stored in an **in-memory array** for simplicity.
+
+---
+
+## 🚀 Features
+
+* RESTful endpoints following best practices
+* JSON responses with success/error messages
+* Lightweight (no database, just in-memory storage)
+* Easy to extend for future functionality
+
+---
+
+## 📦 Installation & Setup
+
+1. Clone this repository:
+
+```bash
+git clone https://github.com/your-username/playing-card-api.git
+cd playing-card-api
+```
+
+2. Install dependencies:
+
+```bash
+npm install
+```
+
+3. Start the server:
+
+```bash
+node index.js
+```
+
+4. The API will run at:
+
+```
+http://localhost:3000
+```
+
+---
+
+## 📡 API Endpoints
+
+### 1. Get all cards
+
+**Request:**
+
+```http
+GET /cards
+```
+
+**Response:**
+
+```json
+[
+  { "id": 1, "suit": "Hearts", "value": "Ace" },
+  { "id": 2, "suit": "Spades", "value": "10" }
+]
+```
+
+---
+
+### 2. Add a new card
+
+**Request:**
+
+```http
+POST /cards
+Content-Type: application/json
+```
+
+**Body:**
+
+```json
+{
+  "suit": "Diamonds",
+  "value": "Queen"
+}
+```
+
+**Response:**
+
+```json
+{
+  "message": "Card added successfully",
+  "card": { "id": 3, "suit": "Diamonds", "value": "Queen" }
+}
+```
+
+---
+
+### 3. Get a card by ID
+
+**Request:**
+
+```http
+GET /cards/:id
+```
+
+**Response:**
+
+```json
+{ "id": 2, "suit": "Spades", "value": "10" }
+```
+
+If card not found:
+
+```json
+{ "error": "Card not found" }
+```
+
+---
+
+### 4. Delete a card by ID
+
+**Request:**
+
+```http
+DELETE /cards/:id
+```
+
+**Response:**
+
+```json
+{ "message": "Card deleted successfully" }
+```
+
+If card not found:
+
+```json
+{ "error": "Card not found" }
+```
+
+---
+
+## 🛠 Tech Stack
+
+* **Node.js**
+* **Express.js**
+
+---
+
+## 📜 License
+
+This project is open source and available under the [MIT License](LICENSE).
